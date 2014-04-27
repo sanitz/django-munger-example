@@ -1,0 +1,11 @@
+<html>
+<body>
+<h1>Munger</h1>
+<form  method='POST'>
+    {% csrf_token %}
+    <input type='text' name='content' />
+    <input type='submit' value='Munge' />
+<form>
+<p> {{ txt }} <br>Result: {{ munged }}</p>
+</body>
+</html>
