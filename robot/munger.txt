@@ -1,0 +1,28 @@
+*** Settings ***
+Documentation    Akzeptanztest für den Munger
+
+Library          Selenium2Library
+Suite Setup      Start Browser
+Test Setup       Open Munger
+Suite Teardown   Stop Browser
+
+*** Test Cases ***   Input    Munged
+
+Text Munger verdreht ein Eingabe
+    Input Text           name=content  abcd
+    Submit Form
+    Page Should Contain  acbd
+
+#    Capture Page Screenshot
+
+
+*** Keywords ***
+
+Start Browser
+    Open Browser  http://www.google.de/  browser=ff
+
+Stop Browser
+    Close All Browsers
+
+Open Munger
+     Go To    http://localhost:8000
